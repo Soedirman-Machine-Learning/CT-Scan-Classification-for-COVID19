@@ -1,0 +1,2 @@
+Berikut ini adalah link dataset pada Kaggle :
+https://www.kaggle.com/azaemon/preprocessed-ct-scans-for-covid19
