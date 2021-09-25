@@ -1,0 +1,99 @@
+{% extends 'index.html' %} {% block body %}
+
+<div class="container" id="myrow">
+    <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="nav-link active" id="uploadimg" href="#upload-image">Upload Image</a>
+        </li>
+    </ul>
+
+    <!--Tab panes-->
+    <div>
+
+
+    </div class="tab-content">
+    <div class="tab-pane active" id="upload-image" role="tabpanel" aria-labelledby="uploadimg">
+        <div class="row">
+            <div class="col">
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <!--File input-->
+                    <p>
+                        <input type="file" name="image_name" class="btn" style="background-color: #1c768f; color:azure;" required>
+                    </p>
+                    <!--Submit button-->
+                    <p>
+                        <input type="submit" value="submit" class="btn" style="background-color: #1c768f; color:azure">
+                    </p>
+
+                    <p><strong>Instruction :</strong> <br> Only upload file with extention ".png", ".jpg", ".jpeg" For other image extention you will <strong>redirect</strong> to error 404 page
+
+                    </p>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if fileupload==True and prediction_type==1 %}
+<div class="container">
+    <div class="row">
+        <div class="col col-8">
+            <img src="/static/upload/{{ image_filename }}" alt="uploaded image" width="300" height="300">
+            <h2> Lung Parenchyma Prediction : <i> {{prediction_LP}} </i></h2>
+            <h2> Lung Parenchyma Confidence : <i> {{confidence_LP}} </i> %</h2>
+        </div>
+    </div>
+</div>
+{% endif %} {% if fileupload==True and prediction_type==2 %}
+<div class="container">
+    <div class="row">
+        <div class="col col-8">
+            <img src="/static/upload/{{ image_filename }}" alt="uploaded image" width="300" height="300">
+            <h2> Lung Parenchyma Prediction : <i> {{prediction_LP}} </i></h2>
+            <h2> Lung Parenchyma Confidence : <i> {{confidence_LP}} </i> %</h2>
+            <h2> Covid Positivity Prediction : <i> {{prediction_CP}} </i></h2>
+            <h2> Covid Positivity Confidence : <i> {{confidence_CP}} </i> %</h2>
+        </div>
+    </div>
+</div>
+{% endif %} {% if fileupload==True and prediction_type==3 %}
+<div class="container">
+    <div class="row">
+        <div class="col col-8">
+            <img src="/static/upload/{{ image_filename }}" alt="uploaded image" width="300" height="300">
+            <h5> Lung Parenchyma Prediction : <i> {{prediction_LP}} </i></h5>
+            <h5> Lung Parenchyma Confidence : <i> {{confidence_LP}} </i> %</h5>
+            <h5> Covid Positivity Prediction : <i> {{prediction_CP}} </i></h5>
+            <h5> Covid Positivity Confidence : <i> {{confidence_CP}} </i> %</h5>
+            <h5> Risk Prediction : <i> {{prediction_risk}} </i></h5>
+            <h5> Risk Confidence : <i> {{confidence_risk}} </i> %</h5>
+            <h5> Mortality Prediction : <i> {{prediction_mor}} </i></h5>
+            <h5> Mortality Confidence : <i> {{confidence_mor}} </i> %</h5>
+        </div>
+    </div>
+</div>
+{% endif %} {% if extension %}
+<div class="container" id=myrow_result>
+    <div class="row">
+        <p>Invalid extension of the image</p>
+        <p>Make sure the image extension is of following:".png", ".jpg", ".jpeg"</p>
+    </div>
+</div>
+
+{% endif %}
+
+<style>
+    #myrow {
+        background-color: #fbf3f2;
+    }
+    
+    #myrow_result {
+        background-color: #fbf3f2;
+        padding: 5%;
+        align-content: center;
+    }
+</style>
+
+{% endblock %}

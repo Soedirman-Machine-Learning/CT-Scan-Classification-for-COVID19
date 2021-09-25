@@ -1,0 +1,20 @@
+{% extends 'index.html' %} {% block body %}
+<div class="container" id=myrow>
+    <div class="row">
+        <p>This is an image classification application that is used to classify and detect covid-19 based on a chest CT Scan by applying the principle of a convolutional neural network (CNN).
+            <br> Lung Parenchyma model has an accuracy of <span style="color: green">95%</span>
+            <br> Covid Positivity model has an accuracy of <span style="color: red">49%</span>
+            <br> Risk model has an accuracy of <span style="color: green">86%</span>
+            <br> Mortality model has an accuracy of <span style="color: green">80%</span>
+        </p>
+    </div>
+</div>
+<style>
+    #myrow {
+        background-color: #fbf3f2;
+    }
+</style>
+
+
+
+{% endblock %}
